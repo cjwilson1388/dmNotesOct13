@@ -1,0 +1,48 @@
+If there is no return statement on your service than what will be returned is this
+
+ie
+angular.module('moduleName', [])
+.service('firstWord', function(){
+  this.value = '';
+})
+
+
+This is Fine
+
+
+This isn't ||||| below |||||
+
+angular.module('moduleName', [])
+.factory('firstWord', [function(){
+this.value= '';
+}])
+
+
+
+
+if you don't return something explicit in a factory it will return an error.
+
+SERVICES:
+--------------
+
+*Lazily instantiated - Angular only instantiates a service when an application component depends on it.
+
+  angular.module('test', [])
+    .service('fireAlert', function(){
+      alert("Whoa, we're burnin' up!")
+    });
+
+*Singletons - each component dependent on a service gets a reference to the single instance genereated by the service factory.
+*$(Money Bags) - Built-in services start with $(e.g $http)
+
+
+Providers
+--------------
+
+https://docs.angularjs.org/guide/providers
+
+Create an app module, then a controller and then a service.
+
+Config is set to only be run once. You can run providers in Config. => Uploading this dependency for when I upload it in to my app. For example could create a tips.default location. If there is different configuration for your code you should turn it into a Provider.
+
+ 
